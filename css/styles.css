@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #fff;
+	color: #000;
+}
+
+.container {
+	margin: 30px;
+	padding: 15px;
+	background-color: #1A82D0;
+	background-image: linear-gradient(white 2px, transparent 2px),
+	linear-gradient(90deg, white 2px, transparent 2px),
+	linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+	linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.workspace {
+	position: relative;
+	height: 400px;
+	background-color: #eee;
+	background-image: linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb), 
+linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb);
+	background-size: 20px 20px;
+	background-position: 0 0, 10px 10px;
+	cursor: default;
+}
+
+.target-area {
+	position: absolute;
+	background-color: #f44;
+	border: 1px solid yellow;
+	opacity: .8;
+	/*transition: all .2s ease;*/
+}
