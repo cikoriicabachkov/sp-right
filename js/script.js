@@ -241,10 +241,14 @@
 	}
 
 	function handleFileSelect(evt) {
-		var file = evt.target.files[0];
+		evt.stopPropagation();
+		evt.preventDefault();
+
+		var file = evt.dataTransfer.files[0];
 
 		var output = [];
 		var f = file;
+		console.log(f);
 		output.push(
 			'<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') — ',
 			f.size, ' bytes, last modified: ',
@@ -254,19 +258,19 @@
 
 	}
 
+	function handerDragOver(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+		evt.dataTransfer.dropEffect = 'copy';
+	}
+
+	// add the dnd listeners
+	var dropZone = document.getElementById('dropZone');
+	dropZone.addEventListener('dragover', handerDragOver, false);
+	dropZone.addEventListener('drop', handleFileSelect, false);
+
 	document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
 
 	// File upload section end
 
 })();
-
-		// test it (without width/height length)
-			// var bMoveForward = !isImageCrossed(area);
-			// do {
-			// area.x = area.x + (bMoveForward ? 1 : -1);
-			// } while (bMoveForward != !isImageCrossed(area));
-			// if (!bMoveForward) {
-			// area.x++;
-			// }
-			// return area;
-		// test end
